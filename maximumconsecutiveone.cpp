@@ -1,26 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
-int maxcount(int arr[]){
-      int n= arr.length();
-      int count =0;
-      
-      for(int i= 0;i<n-1;i++){
+int maxcount(int arr[],int n){
+    int count =0;
+    int maxcount=0;
+    for(int i=0;i<n;i++){
         if(arr[i]==1){
-            count=count+1;
+           count=count+1;
+            maxcount=max(count,maxcount);
         }
         else{
-            count=0;
+           count=0;
         }
+
+    }
+      return maxcount;
 }
-      return count;
-}
+
 
 
 
 
 int main(){
-    int arr[]={1,1,0,1,1,1};
-    int result = maxcount(arr);
+    int arr[]={1,1,0,1,1,1,0,1,1};
+    int n=sizeof(arr)/sizeof(arr[0]);
+// cout<<n;
+    int result = maxcount(arr,n);
     cout<<result<<endl;
     return 0;
 }
