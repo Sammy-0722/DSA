@@ -34,21 +34,25 @@ using namespace std;
 // }
 
 int majorityElement(vector<int>& nums) {
-    int candidate = 0;
-    int count = 0;
-
-    for(int num : nums) {
-        if(count == 0) {
-            candidate = num;
-        }
-
-        if(num == candidate)
-            count++;
-        else
-            count--;
+  int candidate=0;
+  int count=0;
+  for(int num: nums){
+    if(count==0){
+        candidate = num;
     }
-
-    return candidate;
+    else if(candidate==num){
+      count++;
+    }
+    else{
+        count--;
+    }
+  }
+   for(int num:nums){
+        if(num==candidate){
+            return candidate;
+        }
+    }
+    return -1;
 }
 int main()
 {
